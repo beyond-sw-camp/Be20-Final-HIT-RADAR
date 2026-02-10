@@ -1,0 +1,72 @@
+.section {
+  display: flex;
+}
+.side-box {
+  margin-top: 50px;
+  border: 1px solid #9aa1ad;
+  border-radius: 16px;
+  width : 30%;
+
+}
+.card-bd {
+  padding-top: 50px;
+  width: 70%;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th {
+  width: 20%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #eaf0ff;
+}
+
+.table td {
+  width: 30%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.input-tbl, .select-tbl {
+  width:100%;
+  background: rgba(255,255,255,.04);
+  color:var(--text-main);
+  border:1px solid var(--border);
+  border-radius: 12px;
+  padding:10px 12px;
+  outline:none;
+}
+
+.tag-box {
+  height: 100px;
+  text-align: left;      /* 왼쪽 정렬 */
+  vertical-align: top; /* 세로 가운데 정렬 */
+  padding-left: 8px;
+}
+
+.tag {
+  border: 2px solid #7b8bb3; /* 하늘색 테두리 */
+  background-color: #ffffff;  /* 배경 흰색 */
+  font-weight: bold;
+  border-radius: 16px;        /* 모서리 둥글게 */
+  padding: 7px 12px;          /* 안쪽 여백 */
+  display: inline-block;       /* 크기 내용에 맞춤 */
+  margin : 10px 3px;
+}
+
+.card-btn {
+  width: 100%;
+  text-align: end;
+  margin-top: 10px;
+
+}
+.card-btn .btn {
+  margin-left: 10px;
+}
+
+.color-red {
+  color: red;
+}

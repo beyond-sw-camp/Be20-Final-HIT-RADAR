@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", "Noto Sans KR", "Pretendard", sans-serif;
+
+  background:
+    var(--bg-gradient),
+    var(--bg);
+
+  color: var(--text-main);
+  line-height: 1.45;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}

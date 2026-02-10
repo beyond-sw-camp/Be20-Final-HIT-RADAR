@@ -1,0 +1,37 @@
+/* 공통 배지 스타일 */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 20px; /* 둥근 캡슐 모양 */
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+/* 상태별 색상 (배경 및 글자색) */
+.DRAFT {
+  background-color: #f3f4f6; /* 회색 */
+  color: #6b7280;
+}
+
+.IN_PROGRESS {
+  background-color: #eff6ff; /* 파란색 */
+  color: #3b82f6;
+}
+
+.APPROVED {
+  background-color: #f0fdf4; /* 초록색 */
+  color: #16a34a;
+}
+
+.REJECTED {
+  background-color: #fef2f2; /* 빨간색 */
+  color: #dc2626;
+}
+
+.WITHDRAWN {
+  background-color: #fff7ed; /* 주황색 */
+  color: #ea580c;
+}

@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/hit?serverTimezone=Asia&useSSL=false&allowPublicKeyRetrieval=true
+    username: hit
+    password: hradar
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update    # create, create-drop, update, validate, none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        dialect: org.hibernate.dialect.MariaDBDialect
+    open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      notification: hr.notification
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      # Connection and session settings
+      session-timeout-ms: 30000
+      heartbeat-interval-ms: 10000
+      max-poll-interval-ms: 300000
+    # Connection retry settings
+    properties:
+      reconnect.backoff.ms: 1000
+      reconnect.backoff.max.ms: 10000
+      request.timeout.ms: 30000
+      retry.backoff.ms: 1000
+
+server:
+  port: 8083

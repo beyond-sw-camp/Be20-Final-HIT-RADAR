@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hr-auth
+  namespace: hr-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hr-auth
+  template:
+    metadata:
+      labels:
+        app: hr-auth
+    spec:
+      containers:
+        - name: hr-auth
+          image: 850995576970.dkr.ecr.ap-northeast-2.amazonaws.com/hradar-auth:b9e87c8cb37a2cabd20f66f54584c9cfb9dc1c4e
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: hr-common-config
+            - secretRef:
+                name: hr-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hr-auth
+  namespace: hr-system
+spec:
+  type: NodePort
+  selector:
+    app: hr-auth
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8080

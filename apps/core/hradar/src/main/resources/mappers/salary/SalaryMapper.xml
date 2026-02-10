@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hit.hradar.domain.salary.query.mapper.SalaryMapper">
+  <select id="findSalaryApprovalTargets"
+    parameterType="org.hit.hradar.domain.salary.query.dto.request.SalaryApprovalTargetRequest"
+    resultType="org.hit.hradar.domain.salary.query.dto.SalaryApprovalTargetDTO">
+  select emp.emp_id
+       , emp.employee_no
+       , dep.dept_name
+       , emp.name as employeeName
+       , cp.name as positionName
+       , emp.type as employmentType
+    from compensation_salary_employee cse
+    join approval_document ad on ad.doc_id = cse.doc_id and ad.is_deleted = 'N'
+    join employee emp on cse.emp_id = emp.emp_id
+    join department dep on emp.dept_id = dep.dept_id
+    join company_position cp on emp.position_id = cp.position_id and cp.is_deleted = 'N'
+   where cse.is_deleted = 'N'
+     and ad.status = #{approvalStatus}
+     and ad.doc_type = #{approvalDocumentType}
+  <if test="employmentType != null and employmentType != ''">
+     and emp.type = #{employmentType}
+  </if>
+  <if test="employeeNo != null and employeeNo != ''">
+     and emp.employee_no = #{employeeNo}
+  </if>
+  <if test="deptId != null">
+     and dep.dept_id = #{deptId}
+  </if>
+  <if test="employeeName != null and employeeName != ''">
+     and emp.name like concat('%', #{employeeName}, '%')
+  </if>
+  <if test="positionId != null">
+     and cp.position_id = #{positionId}
+  </if>
+  order by dep.dept_name asc, emp.name asc
+  </select>
+</mapper>

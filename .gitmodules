@@ -1,0 +1,21 @@
+[submodule "apps/apps/core"]
+	path = apps/apps/core
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Core.git
+[submodule "apps/apps/frontend"]
+	path = apps/apps/frontend
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-FE.git
+[submodule "apps/apps/gateway"]
+	path = apps/apps/gateway
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Gateway.git
+[submodule "apps/apps/chatbot"]
+	path = apps/apps/chatbot
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Chatbot.git
+[submodule "apps/apps/notification"]
+	path = apps/apps/notification
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Notification.git
+[submodule "apps/apps/auth"]
+	path = apps/apps/auth
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Auth.git
+[submodule "apps/apps/infra"]
+	path = apps/apps/infra
+	url = https://github.com/Human-Intelligence-Team/HIT-HRadar-Infra.git
